@@ -1,0 +1,12 @@
+# Copy to <your-repo>/.github/workflows/dependency-review.yml
+name: Dependency review
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  review:
+    uses: tolerl1/dependency-mgmt/.github/workflows/dependency-review.yml@main
+    with:
+      allow-fix-commits: false   # report-only until you trust it
+    secrets:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
